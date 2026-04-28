@@ -1,0 +1,52 @@
+# --- LaTeX ---
+*.tex
+
+*.aux
+
+*.log
+
+*.out
+
+*.fls
+
+*.fdb_latexmk
+
+*.toc
+
+*.synctex.gz
+
+*.bbl
+
+*.blg
+
+# --- HTML build outputs ---
+
+*.html
+
+# --- PDFs (optional: keep if you want final report tracked) ---
+
+# *.pdf
+# Lean / Lake build outputs
+
+.lake/
+.lean/
+
+build/
+
+lake-packages/
+
+*.olean
+
+*.ilean
+
+*.c
+
+*.o
+
+*.so
+
+*.exe
+
+# --- macOS ---
+
+.DS_Store

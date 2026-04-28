@@ -1,0 +1,33 @@
+name = "interval_analyzer_aam"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["Analyzer"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "batteries"
+scope = "leanprover-community"
+rev = "v4.26.0"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.26.0"
+
+[package]
+name = "IntervalAnalyzerAam"
+version = "0.1.0"
+
+[[lean_lib]]
+name = "Analyzer"
+
+[[lean_exe]]
+name = "analyzer"
+root = "Analyzer"
+
+
