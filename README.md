@@ -23,7 +23,7 @@ correct in Lean 4 with no heuristics and no false negatives.
 ## Build
 
 ```bash
-git clone https://github.com/kiwi8803/interval_analyzer_aam.git
+git clone https://github.com/kiwi8803/interval-analyzer-aam.git
 cd interval_analyzer_aam
 lake build
 ```

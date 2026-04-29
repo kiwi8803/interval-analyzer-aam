@@ -4,7 +4,7 @@
 **Release date:** April 2026  
 **Status:** Pre-release — research prototype, not production software  
 **Lean 4 toolchain:** `leanprover/lean4:v4.26.0`  
-**Repository:** https://github.com/kiwi8803/interval_analyzer_aam/releases/tag/v0.1
+**Repository:** https://github.com/kiwi8803/interval-analyzer-aam/releases/tag/v0.1
 
 ---
 
