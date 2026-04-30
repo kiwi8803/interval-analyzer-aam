@@ -240,10 +240,10 @@ def prog1 : Stmt :=
              (.assign "y" (.add (.var "x") (.const 3))))
        .skip
 
-#eval
-  let cfg    := mkConfig prog1 [("x", .bot), ("y", .bot)]
-  let finals := runAbstract 20 [cfg]
-  showVars cfg.env finals
+--#eval
+  --let cfg    := mkConfig prog1 [("x", .bot), ("y", .bot)]
+ -- let finals := runAbstract 20 [cfg]
+  --showVars cfg.env finals
 
 -- ============================================================
 -- Demo 2 — If-else branch analysis
@@ -258,10 +258,10 @@ def prog2 : Stmt :=
              (.assign "y" (.const 0)))
        .skip
 
-#eval
-  let cfg    := mkConfig prog2 [("x", .range (.fin (-32)) (.fin 5)), ("y", .bot)]
-  let finals := runAbstract 20 [cfg]
-  showVars cfg.env finals
+--#eval
+ -- let cfg    := mkConfig prog2 [("x", .range (.fin (-32)) (.fin 5)), ("y", .bot)]
+ -- let finals := runAbstract 20 [cfg]
+  --showVars cfg.env finals
 
 -- ============================================================
 -- Demo 3 — While-loop widening
@@ -274,10 +274,10 @@ def prog3 : Stmt :=
   .while (.var "x")
   (.assign "x" (.add (.var "x") (.const 1)))
 
-#eval
-  let cfg    := mkConfig prog3 [("x", .range (.fin 1) (.fin 1))]
-  let finals := (widenFixpoint 1 cfg)
-  showVars cfg.env finals
+--#eval
+ -- let cfg    := mkConfig prog3 [("x", .range (.fin 1) (.fin 1))]
+ -- let finals := (widenFixpoint 1 cfg)
+ -- showVars cfg.env finals
 
 -- ============================================================
 -- Demo 4 — Security: countdown loop then use of x
@@ -295,9 +295,9 @@ def prog_security : Stmt :=
   (.seq (.while (.var "x") (.assign "x" (.sub (.var "x") (.const 1))))
         (.assign "danger" (.add (.var "x") (.const 5))))
 
-#eval
-  let cfg := mkConfig prog_security [("x", .bot), ("danger", .bot)]
-  showVars cfg.env (widenFixpoint 12 cfg)
+--#eval
+ -- let cfg := mkConfig prog_security [("x", .bot), ("danger", .bot)]
+--  showVars cfg.env (widenFixpoint 12 cfg)
 -- Expected with N=12: x → [-1, 10],  danger → [5, 15]
 
 -- ============================================================
@@ -312,9 +312,9 @@ def prog_counting_up : Stmt :=
   (.seq (.while (.var "x") (.assign "x" (.add (.var "x") (.const 1))))
         (.assign "result" (.add (.var "x") (.const 10))))
 
-#eval
-  let cfg := mkConfig prog_counting_up [("x", .bot), ("result", .bot)]
-  showVars cfg.env (widenFixpoint 2 cfg)
+--#eval
+ -- let cfg := mkConfig prog_counting_up [("x", .bot), ("result", .bot)]
+ -- showVars cfg.env (widenFixpoint 2 cfg)
 -- Expected: x ∈ [-5, 0], result ∈ [5, 10]
 
 -- ============================================================
@@ -335,9 +335,9 @@ def prog_nested : Stmt :=
             (.assign "inner" (.sub (.var "inner") (.const 1))))
           (.assign "out" (.sub (.var "out") (.const 1))))))
 
-#eval
-  let cfg := mkConfig prog_nested [("out", .bot), ("inner", .bot)]
-  showVars cfg.env (widenFixpoint 10 cfg)
+--#eval
+  --let cfg := mkConfig prog_nested [("out", .bot), ("inner", .bot)]
+  --howVars cfg.env (widenFixpoint 10 cfg)
 
 
 def run (prog : Stmt) (init : List (String × Interval)) :=

@@ -38,7 +38,7 @@ def run_prog2 : IO Unit := do
 -- Demo 3 — While-loop widening
 --   Initial : x ∈ [1,1]
 --   Program : while x do x := x + 1
---   Expected: x ∈ [1, +∞)  (upper bound widened to +∞)
+--   Expected: x ∈ [1, +∞]  (upper bound widened to +∞)
 -- ============================================================
 
 def prog3 : Analyzer.Stmt :=
